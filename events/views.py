@@ -43,7 +43,10 @@ class ReservationViewSet(viewsets.ModelViewSet):
                 status=status.HTTP_400_BAD_REQUEST
             )
         
-        reservation.event.available_seats += reservation.seats_reservation
+        reservation.event.available_seats += reservation.seats_reserved
         reservation.event.save()
+
+        reservation.status = 'cancelled'
+        reservation.save()
 
         return Response(self.get_serializer(reservation).data)
