@@ -32,7 +32,8 @@ class ReservationViewSet(viewsets.ModelViewSet):
         if event_id:
             queryset = queryset.filter(event_id=event_id)
 
-    
+        return queryset
+
     @action(detail=True, methods=['post'])
     def cancel(self, request, pk=None):
         reservation = self.get_object()
