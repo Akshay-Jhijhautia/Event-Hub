@@ -15,3 +15,5 @@ class RequestLoggingMiddleware:
         logger.info(
             f'{request.method} {request.path} - {response.status_code} - {duration:.2f}s'
         )
+
+        return response

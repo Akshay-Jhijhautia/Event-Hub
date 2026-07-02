@@ -4,6 +4,6 @@ from .views import EventViewSet, ReservationViewSet
 router = DefaultRouter()
 
 router.register(r'events', EventViewSet, basename='event')
-router.register(r'reservation', ReservationViewSet, basename='reservation')
+router.register(r'reservations', ReservationViewSet, basename='reservation')
 
 urlpatterns = router.urls
